@@ -266,8 +266,7 @@ if (contactForm) {
 
     });
 
-}
-// =========================================
+}// =========================================
 // MOBILE MENU
 // =========================================
 
@@ -281,22 +280,6 @@ if (menuToggle && navLinks) {
     menuToggle.addEventListener("click", function () {
 
         navLinks.classList.toggle("active");
-
-    });
-
-
-    // Close the mobile menu automatically after tapping a link
-    // (so the dropdown doesn't stay open when navigating to another page)
-
-    const mobileNavLinks = navLinks.querySelectorAll("a");
-
-    mobileNavLinks.forEach(function (link) {
-
-        link.addEventListener("click", function () {
-
-            navLinks.classList.remove("active");
-
-        });
 
     });
 
