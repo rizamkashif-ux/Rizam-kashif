@@ -3038,46 +3038,19 @@ body::after{
 
     }
 
-}/* Hide hamburger on desktop */
-.menu-toggle {
-    display: none;
-}
-
-
-/* Show hamburger on phones */
-@media (max-width: 768px) {
-
-    .menu-toggle {
-        display: block;
-        background: none;
-        border: none;
-        font-size: 24px;
-        cursor: pointer;
-    }
-
 }
 /* ========================================= */
-/* HAMBURGER MENU */
+/* HAMBURGER MENU (single source of truth) */
 /* ========================================= */
 
 /* Hidden on desktop */
 .menu-toggle {
     display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
-
-/* Visible on mobile */
-@media screen and (max-width: 768px) {
-
-    .menu-toggle {
-        display: block !important;
-        background: none;
-        border: none;
-        font-size: 25px;
-        cursor: pointer;
-    }
-
-}
 /* ========================================= */
 /* MOBILE RESPONSIVE DESIGN */
 /* ========================================= */
@@ -3104,26 +3077,22 @@ body::after{
     }
 
 
-    /* Show hamburger button */
+    /* Show hamburger button - blue, matches accent palette */
 
     .menu-toggle {
 
         display: block;
 
-        background: none;
+        font-size: 26px;
 
-        border: none;
-
-        font-size: 25px;
-
-        cursor: pointer;
+        color: #3B82F6;
 
         z-index: 1001;
 
     }
 
 
-    /* Hide menu by default */
+    /* Hide menu by default - dark theme dropdown, not white */
 
     .nav-links {
 
@@ -3145,11 +3114,15 @@ body::after{
 
         gap: 0;
 
-        padding: 15px 0;
+        padding: 10px 0 20px;
 
-        background: white;
+        background: rgba(8, 12, 30, 0.98);
 
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(12px);
+
+        border-top: 1px solid rgba(236, 72, 153, 0.25);
+
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 
         z-index: 1000;
 
@@ -3171,12 +3144,14 @@ body::after{
 
         width: 100%;
 
+        margin-left: 0;
+
         padding: 14px 0;
 
     }
 
 
-    /* Menu links */
+    /* Menu links - keep site's white text on dark background */
 
     .nav-links li a {
 
@@ -3184,20 +3159,18 @@ body::after{
 
         width: 100%;
 
-        color: #222;
+        color: white;
 
         font-size: 16px;
-
-        text-decoration: none;
 
     }
 
 
-    /* Hover effect */
+    /* Hover effect - matches desktop nav's pink hover */
 
     .nav-links li a:hover {
 
-        color: #007bff;
+        color: #EC4899;
 
     }
 
