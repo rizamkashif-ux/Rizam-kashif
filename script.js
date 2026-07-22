@@ -266,4 +266,16 @@ if (contactForm) {
 
     });
 
-}
+}// Get the hamburger button
+const menuToggle = document.getElementById("menu-toggle");
+
+// Get the navigation menu
+const navLinks = document.getElementById("nav-links");
+
+// When hamburger is clicked
+menuToggle.addEventListener("click", function () {
+
+    // Show or hide the navigation menu
+    navLinks.classList.toggle("active");
+
+});
