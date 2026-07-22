@@ -3222,15 +3222,4 @@ body::after{
         padding: 20px;
     }
 
-}@media screen and (max-width: 768px) {
-
-    .nav-links {
-        display: none;
-    }
-
-    .nav-links.active {
-        display: flex;
-        flex-direction: column;
-    }
-
 }
