@@ -266,16 +266,21 @@ if (contactForm) {
 
     });
 
-}// Get the hamburger button
-const menuToggle = document.getElementById("menu-toggle");
+}// =========================================
+// MOBILE MENU
+// =========================================
 
-// Get the navigation menu
+const menuToggle = document.getElementById("menu-toggle");
 const navLinks = document.getElementById("nav-links");
 
-// When hamburger is clicked
-menuToggle.addEventListener("click", function () {
 
-    // Show or hide the navigation menu
-    navLinks.classList.toggle("active");
+// Check that the elements exist on the page
+if (menuToggle && navLinks) {
 
-});
+    menuToggle.addEventListener("click", function () {
+
+        navLinks.classList.toggle("active");
+
+    });
+
+}
