@@ -3038,4 +3038,43 @@ body::after{
 
     }
 
+}/* Hide hamburger on desktop */
+.menu-toggle {
+    display: none;
+}
+
+
+/* Show hamburger on phones */
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+}
+/* ========================================= */
+/* HAMBURGER MENU */
+/* ========================================= */
+
+/* Hidden on desktop */
+.menu-toggle {
+    display: none;
+}
+
+
+/* Visible on mobile */
+@media screen and (max-width: 768px) {
+
+    .menu-toggle {
+        display: block !important;
+        background: none;
+        border: none;
+        font-size: 25px;
+        cursor: pointer;
+    }
+
 }
