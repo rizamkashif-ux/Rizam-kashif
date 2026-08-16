@@ -14,12 +14,22 @@
     padding:0;
     box-sizing:border-box;
     scroll-behavior:smooth;
+    -webkit-tap-highlight-color:transparent;
 }
 
 
 /* ========================================= */
 /* BODY */
 /* ========================================= */
+
+html{
+
+    overflow-x:hidden;
+
+    width:100%;
+
+}
+
 
 body{
 
@@ -30,6 +40,14 @@ body{
     color:white;
 
     overflow-x:hidden;
+
+    width:100%;
+
+    max-width:100vw;
+
+    -webkit-font-smoothing:antialiased;
+
+    -webkit-overflow-scrolling:touch;
 
 }
 
@@ -62,6 +80,8 @@ header{
     left:0;
 
     z-index:1000;
+
+    -webkit-backdrop-filter:blur(12px);
 
     backdrop-filter:blur(12px);
 
@@ -154,6 +174,9 @@ header{
 
     font-weight:600;
 
+    -webkit-appearance:none;
+    appearance:none;
+
 }
 
 
@@ -173,6 +196,8 @@ header{
     width:90%;
 
     min-height:100vh;
+
+    min-height:100dvh;
 
     margin:auto;
 
@@ -264,6 +289,9 @@ header{
     transition:.3s;
 
     font-weight:600;
+
+    -webkit-appearance:none;
+    appearance:none;
 
 }
 
@@ -377,6 +405,8 @@ header{
     position:absolute;
 
     border-radius:50%;
+
+    -webkit-filter:blur(130px);
 
     filter:blur(130px);
 
@@ -723,6 +753,8 @@ body::before{
 
     border-radius:50%;
 
+    -webkit-filter:blur(150px);
+
     filter:blur(150px);
 
     opacity:0.15;
@@ -749,6 +781,8 @@ body::after{
     background:#EC4899;
 
     border-radius:50%;
+
+    -webkit-filter:blur(150px);
 
     filter:blur(150px);
 
@@ -932,6 +966,21 @@ body::after{
 
     }
 
+
+    /* Background Glow - scaled down for mobile */
+
+    body::before,
+
+    body::after{
+
+        width:140px;
+
+        height:140px;
+
+        opacity:0.08;
+
+    }
+
 }
 
 
@@ -991,7 +1040,160 @@ body::after{
 
     }
 
-}/* ========================================= */
+}
+
+
+/* ========================================= */
+/* HAMBURGER MENU (single source of truth) */
+/* ========================================= */
+
+/* Hidden on desktop */
+
+.menu-toggle{
+
+    display:none;
+
+    background:none;
+
+    border:none;
+
+    cursor:pointer;
+
+    -webkit-appearance:none;
+    appearance:none;
+
+}
+
+
+@media(max-width:768px){
+
+    /* Navbar row on mobile */
+
+    .navbar{
+
+        position:relative;
+
+        flex-direction:row;
+
+        justify-content:space-between;
+
+        align-items:center;
+
+        padding:20px;
+
+    }
+
+
+    /* Show hamburger button - blue, matches accent palette */
+
+    .menu-toggle{
+
+        display:block;
+
+        font-size:26px;
+
+        color:#3B82F6;
+
+        z-index:1001;
+
+    }
+
+
+    /* Hide menu by default - dark theme dropdown, not white */
+
+    .nav-links{
+
+        display:none;
+
+        position:absolute;
+
+        top:100%;
+
+        left:0;
+
+        width:100%;
+
+        flex-direction:column;
+
+        align-items:center;
+
+        text-align:center;
+
+        gap:0;
+
+        padding:10px 0 20px;
+
+        background:rgba(8,12,30,0.98);
+
+        -webkit-backdrop-filter:blur(12px);
+
+        backdrop-filter:blur(12px);
+
+        border-top:1px solid rgba(236,72,153,0.25);
+
+        box-shadow:0 15px 30px rgba(0,0,0,0.4);
+
+        z-index:1000;
+
+    }
+
+
+    /* Show menu when JavaScript adds active */
+
+    .nav-links.active{
+
+        display:flex;
+
+    }
+
+
+    /* Individual menu items */
+
+    .nav-links li{
+
+        width:100%;
+
+        margin-left:0;
+
+        padding:14px 0;
+
+    }
+
+
+    /* Menu links - keep site's white text on dark background */
+
+    .nav-links li a{
+
+        display:block;
+
+        width:100%;
+
+        color:white;
+
+        font-size:16px;
+
+    }
+
+
+    /* Hover effect - matches desktop nav's pink hover */
+
+    .nav-links li a:hover{
+
+        color:#EC4899;
+
+    }
+
+
+    /* Hide resume button on mobile */
+
+    .resume-btn{
+
+        display:none;
+
+    }
+
+}
+/* ========================================= */
 /* ABOUT PAGE */
 /* ========================================= */
 
@@ -2845,6 +3047,9 @@ body::after{
 
     transition:.3s;
 
+    -webkit-appearance:none;
+    appearance:none;
+
 }
 
 
@@ -2889,6 +3094,9 @@ body::after{
     cursor:pointer;
 
     transition:.3s;
+
+    -webkit-appearance:none;
+    appearance:none;
 
 }
 
@@ -3035,304 +3243,6 @@ body::after{
         flex-direction:column;
 
         text-align:center;
-
-    }
-
-}
-/* ========================================= */
-/* HAMBURGER MENU (single source of truth) */
-/* ========================================= */
-
-/* Hidden on desktop */
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-/* ========================================= */
-/* MOBILE RESPONSIVE DESIGN */
-/* ========================================= */
-
-@media (max-width: 768px) {
-
-
-    /* ========================================= */
-    /* NAVBAR */
-    /* ========================================= */
-
-    .navbar {
-
-        position: relative;
-
-        flex-direction: row;
-
-        justify-content: space-between;
-
-        align-items: center;
-
-        padding: 20px;
-
-    }
-
-
-    /* Show hamburger button - blue, matches accent palette */
-
-    .menu-toggle {
-
-        display: block;
-
-        font-size: 26px;
-
-        color: #3B82F6;
-
-        z-index: 1001;
-
-    }
-
-
-    /* Hide menu by default - dark theme dropdown, not white */
-
-    .nav-links {
-
-        display: none;
-
-        position: absolute;
-
-        top: 100%;
-
-        left: 0;
-
-        width: 100%;
-
-        flex-direction: column;
-
-        align-items: center;
-
-        text-align: center;
-
-        gap: 0;
-
-        padding: 10px 0 20px;
-
-        background: rgba(8, 12, 30, 0.98);
-
-        backdrop-filter: blur(12px);
-
-        border-top: 1px solid rgba(236, 72, 153, 0.25);
-
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-
-        z-index: 1000;
-
-    }
-
-
-    /* Show menu when JavaScript adds active */
-
-    .nav-links.active {
-
-        display: flex;
-
-    }
-
-
-    /* Individual menu items */
-
-    .nav-links li {
-
-        width: 100%;
-
-        margin-left: 0;
-
-        padding: 14px 0;
-
-    }
-
-
-    /* Menu links - keep site's white text on dark background */
-
-    .nav-links li a {
-
-        display: block;
-
-        width: 100%;
-
-        color: white;
-
-        font-size: 16px;
-
-    }
-
-
-    /* Hover effect - matches desktop nav's pink hover */
-
-    .nav-links li a:hover {
-
-        color: #EC4899;
-
-    }
-
-
-    /* Hide resume button on mobile */
-
-    .resume-btn {
-
-        display: none;
-
-    }
-
-
-    /* ========================================= */
-    /* HERO SECTION */
-    /* ========================================= */
-
-    .hero {
-
-        flex-direction: column;
-
-        text-align: center;
-
-        padding: 50px 20px;
-
-    }
-
-
-    .hero-text {
-
-        width: 100%;
-
-    }
-
-
-    .hero-text h1 {
-
-        font-size: 40px;
-
-    }
-
-
-    .hero-text h2 {
-
-        font-size: 22px;
-
-    }
-
-
-    .description {
-
-        font-size: 15px;
-
-        line-height: 1.7;
-
-    }
-
-
-    /* ========================================= */
-    /* HERO IMAGE */
-    /* ========================================= */
-
-    .hero-image {
-
-        width: 100%;
-
-        margin-top: 30px;
-
-    }
-
-
-    .hero-image img {
-
-        width: 250px;
-
-        height: 250px;
-
-    }
-
-
-    /* ========================================= */
-    /* BUTTONS */
-    /* ========================================= */
-
-    .hero-buttons {
-
-        display: flex;
-
-        flex-direction: column;
-
-        align-items: center;
-
-        gap: 15px;
-
-    }
-
-
-    .btn {
-
-        width: 80%;
-
-        text-align: center;
-
-    }
-
-
-    /* ========================================= */
-    /* TECHNOLOGY CARDS */
-    /* ========================================= */
-
-    .tech-icons {
-
-        display: grid;
-
-        grid-template-columns: repeat(2, 1fr);
-
-        gap: 15px;
-
-        padding: 20px;
-
-    }
-
-
-    /* ========================================= */
-    /* STATS */
-    /* ========================================= */
-
-    .stats {
-
-        display: grid;
-
-        grid-template-columns: repeat(2, 1fr);
-
-        gap: 15px;
-
-        padding: 20px;
-
-    }
-
-
-    /* ========================================= */
-    /* CONTACT */
-    /* ========================================= */
-
-    .contact-preview {
-
-        padding: 50px 20px;
-
-        text-align: center;
-
-    }
-
-
-    /* ========================================= */
-    /* FOOTER */
-    /* ========================================= */
-
-    footer {
-
-        text-align: center;
-
-        padding: 20px;
 
     }
 
